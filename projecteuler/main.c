@@ -111,23 +111,93 @@ int problem4(){
 }
 
 
-void problem5(){
-    int twos = 0;
-    int threes = 0;
-    int fives = 0;
-    int sevens = 0;
-    int elevens = 0;
-    int thirteens = 0;
-    int seventeens = 0;
-    int nineteens = 0;
+
+
+int nextPrimeNumber(int number){
+    while (true){
+        number += 1;
+        if (isPrime(number)){
+            return number;
+        }
+    }
+}
+
+
+
+
+int primeFactorizationProduct(int number){
+    int prime = 2;
+    int product = 1;
+    while (true){
+        while (number % prime == 0){
+            product *= prime;
+            number /= prime;
+        }
+        if (number == 1){
+            return product;
+        }
+        prime = nextPrimeNumber(prime);
+    }
     
+}
+
+
+int problem5(){
+    int number = 1;
+    int circut;
+    while (true){
+        circut = 1;
+        for (int i = 2; i <= 20; i+=1){
+            if (number % i != 0){
+                circut = 0;
+                break;
+            }
+        }
+        if (circut == 1){
+            return number;
+        }
+        number += 1;
+    }
+}
+
+
+
+void problem6(){
+    int sumOfSquares = 0;
+    int squareOfSums = 0;
     
+    for (int i = 1; i <= 100; i += 1){
+        sumOfSquares += pow(i, 2);
+        squareOfSums += i;
+    }
     
+    squareOfSums = pow (squareOfSums, 2);
+    
+    printf("%d - %d = %d", squareOfSums, sumOfSquares, (squareOfSums-sumOfSquares));
+    
+}
+
+void problem7(){
+    int counter = 1;
+    for (int prime = 3; counter <= 10001; prime += 2){
+        if (isPrime(prime)){
+            counter += 1;
+        }
+        if ((isPrime(prime)) && (counter == 10001)){
+            printf("%d\n", prime);
+        }
+    }
+}
+
+void problem8(){
     
 }
 
 
 
+
 int main(){
-    problem4();
+    problem7();
+    
+    
 }
