@@ -367,21 +367,41 @@ int problem14(){
     return largestNumber;
 }
 
+long problem15(){
+    long matrixArray[441];
+    long tempSum;
+    int leftValue;
+    int topValue;
+    long debugValue;
+    for (int index = 0; index < 441; index += 1){
+        matrixArray[index] = 0;
+    }
+    for (int row = 0; row < 21; row +=1){
+        for (int element = 0; element < 21; element += 1){
+            tempSum = 0;
+            leftValue = (row*21+element-1);
+            topValue = ((row-1)*21+element);
+            if (element != 0){
+                tempSum += matrixArray[leftValue];
+            }
+            if (topValue >= 0 && topValue <= 441){
+                tempSum += matrixArray[topValue];
+            }
+            if (element == 0  && row == 0){
+                matrixArray[0] = 1;
+                debugValue = 1;
+            }
+            else{
+                matrixArray[row*21+element] = tempSum;
+                debugValue = tempSum;
+            };
+        }
+    }
+    printf("%ld\n", matrixArray[440]);
+    return matrixArray[440];
+}
 
 
 int main(){
-    problem1();
-    problem2();
-    problem3();
-    problem4();
-    problem5();
-    problem6();
-    problem7();
-    problem8();
-    problem9();
-    problem10();
-    problem11();
-    problem12();
-    problem13();
-    problem14();
+    problem15();
 }
