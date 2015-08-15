@@ -121,7 +121,6 @@ int problem1(){
             sum += i;
         }
     }
-    printf("%d\n", sum);
     return sum;
 }
 
@@ -138,7 +137,6 @@ int problem2(){
         num2 += num1;
         num1 = tempNum2;
     }
-    printf("%d\n", sum);
     return sum;
 }
 
@@ -149,7 +147,6 @@ int problem3(){
         if ((600851475143 % i == 0) && (isPrime(i)))
             largestPrime = i;
     }
-    printf("%d\n", largestPrime);
     return largestPrime;
 }
 
@@ -163,7 +160,6 @@ int problem4(){
             for (int c = 9; c >= 0; c-=1){
                 workingNumber += (1000*c + 100*c);
                 if (productOfTwoThreeDigitNums(workingNumber) == true){
-                    printf("%d\n", workingNumber);
                     return workingNumber;
                 }
                 workingNumber -= (1000*c + 100*c);
@@ -188,7 +184,6 @@ int problem5(){
             }
         }
         if (circut == 1){
-            printf("%d\n", number);
             return number;
         }
         number += 1;
@@ -207,7 +202,6 @@ int problem6(){
     
     squareOfSums = pow (squareOfSums, 2);
     
-    printf("%d\n", (squareOfSums-sumOfSquares));
     return(squareOfSums-sumOfSquares);
     
 }
@@ -219,7 +213,6 @@ int problem7(){
             counter += 1;
         }
         if ((isPrime(prime)) && (counter == 10001)){
-            printf("%d\n", prime);
             return prime;
         }
     }
@@ -242,7 +235,6 @@ int problem8(){
             }
         }
     }
-    printf("%d\n", largestProduct);
     return largestProduct;
 }
 
@@ -252,7 +244,6 @@ int problem9(){
         for (int b = 1; b < 1000; b+=1){
             if ((pow(a,2))+(pow(b,2)) == (pow(1000-a-b, 2))){
                 solution =a*b*(1000-a-b);
-                printf("%d\n", solution);
                 return solution;
             }
         }
@@ -268,7 +259,6 @@ long problem10(){
         sum += currentPrime;
         currentPrime = nextPrimeNumber(currentPrime);
         if (currentPrime > 2000000){
-            printf("%ld\n",sum);
             return sum;
         }
     }
@@ -330,7 +320,6 @@ int problem11(){
             }
         }
     }
-        printf("%d\n",largestProduct);
         return largestProduct;
 }
 
@@ -339,7 +328,6 @@ int problem12(){
     for (int i = 1; true; i+=1){
         triangleNumber += i;
         if (amountOfDivisors(triangleNumber) > 500){
-            printf("%d\n", triangleNumber);
             return triangleNumber;
         }
     }
@@ -353,7 +341,6 @@ long problem13(){
             sum += bigNumberList[index + row*50]*(pow(10,10-index));
         }
     }
-    printf("%ld\n", sum);
     return sum;
 }
 
@@ -367,7 +354,6 @@ int problem14(){
         }
         
     }
-    printf("%d\n",largestNumber);
     return largestNumber;
 }
 
@@ -401,7 +387,6 @@ long problem15(){
             };
         }
     }
-    printf("%ld\n", matrixArray[440]);
     return matrixArray[440];
 }
 
@@ -421,6 +406,23 @@ int problem18(){
 }
 
 
+
+
 int main(){
-    printf("%d",problem18());
+    printf("problem1: %d\n",problem1());
+    printf("problem2: %d\n",problem2());
+    printf("problem3: %d\n",problem3());
+    printf("problem4: %d\n",problem4());
+    printf("problem5: %d\n",problem5());
+    printf("problem6: %d\n",problem6());
+    printf("problem7: %d\n",problem7());
+    printf("problem8: %d\n",problem8());
+    printf("problem9: %d\n",problem9());
+    printf("problem10: %ld\n",problem10());
+    printf("problem11: %d\n",problem11());
+    printf("problem12: %d\n",problem12());
+    printf("problem13: %ld\n",problem13());
+    printf("problem14: %d\n",problem14());
+    printf("problem15: %ld\n",problem15());
+    
 }
