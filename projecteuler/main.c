@@ -114,6 +114,26 @@ int summation(int n){
     return (n*(n+1))/(2);
 }
 
+int divisors_sum(int n){
+    int sum = 0;
+    for (int i = 1; i <= n/2; i+=1){
+        if (n%i==0)
+            sum += i;
+    }
+    return sum;
+}
+
+bool is_amicable(int n){
+    int firstSum = divisors_sum(n);
+    if (firstSum == n)
+        return false;
+    int secondSum = divisors_sum(firstSum);
+    if (secondSum == n)
+        return true;
+    else
+        return false;
+}
+
 int problem1(){
     int sum = 0;
     for (int i = 1; i <1000; i++){
@@ -457,9 +477,20 @@ int problem20(){
 
 
 
+int problem21(){
+    int sum = 0;
+    for (int i = 1; i < 10000; i+=1){
+        if (is_amicable(i))
+            sum+=i;
+    }
+    return sum;
+}
+
+
+
 
 int main(){
-    /*
+    ///*
     printf("problem1: %d\n",problem1());
     printf("problem2: %d\n",problem2());
     printf("problem3: %d\n",problem3());
@@ -475,8 +506,11 @@ int main(){
     printf("problem13: %ld\n",problem13());
     printf("problem14: %d\n",problem14());
     printf("problem15: %ld\n",problem15());
-    printf("problem16: %ld\n",problem16());
-     */
-    printf("%d",problem20());
+    printf("problem16: %d\n",problem16());
+    printf("problem18: %d\n",problem18());
+    printf("problem20: %d\n",problem20());
+    printf("problem21: %d\n",problem21());
+     //*/
+    
     
 }
