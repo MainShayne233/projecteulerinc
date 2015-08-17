@@ -430,10 +430,36 @@ int problem18(){
     return pyramid[0];
 }
 
+int problem20(){
+    int digits[5000] = {0}, highest = 0, sum = 0;
+    
+    digits[0] = 1;
+    
+    for (int i = 1; i <= 100; i++){
+        int carry = 0, product = 1;
+        
+        for (int j = 0; j <= highest; j++){
+            product = digits[j]*i+carry;
+            digits[j] = product%10;
+            carry = product/10;
+            
+            if ((carry != 0) && (j == highest)){
+                highest++;
+            }
+        }
+    }
+    
+    for (int i = 0; i <= highest; i++){
+        sum += digits[i];
+    }
+    return sum;
+}
+
 
 
 
 int main(){
+    /*
     printf("problem1: %d\n",problem1());
     printf("problem2: %d\n",problem2());
     printf("problem3: %d\n",problem3());
@@ -450,5 +476,7 @@ int main(){
     printf("problem14: %d\n",problem14());
     printf("problem15: %ld\n",problem15());
     printf("problem16: %ld\n",problem16());
+     */
+    printf("%d",problem20());
     
 }
