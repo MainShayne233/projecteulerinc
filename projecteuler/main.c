@@ -486,11 +486,22 @@ int problem21(){
     return sum;
 }
 
+int problem28(){
+    int sum = 1;
+    int square;
+    for (int i = 3; i <= 1001; i += 2){
+        square = pow(i,2);
+        for (int j = 0; j < 4; j+=1)
+            sum+=square-((i-1)*j);
+    }
+    return sum;
+}
+
 
 
 
 int main(){
-    ///*
+    /*
     printf("problem1: %d\n",problem1());
     printf("problem2: %d\n",problem2());
     printf("problem3: %d\n",problem3());
@@ -510,7 +521,8 @@ int main(){
     printf("problem18: %d\n",problem18());
     printf("problem20: %d\n",problem20());
     printf("problem21: %d\n",problem21());
-     //*/
+     */
+    printf("problem28: %d\n",problem28());
     
     
 }
