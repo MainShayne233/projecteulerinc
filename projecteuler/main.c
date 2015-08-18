@@ -592,6 +592,24 @@ int problem28(){
 }
 
 
+int problem25(){
+    int fib1[1000] = {0}, fib2[1000] = {0}, tempFib[1000] = {0}, carry = 0, counter = 2, tempSum;
+    fib1[0] = 1;
+    fib2[0] = 1;
+    while (true){
+        counter += 1;
+        for (int i=0; i<1000;i+=1){
+            tempFib[i]=fib2[i];
+            tempSum = (fib1[i]+fib2[i]+carry);
+            carry = tempSum/10;
+            fib2[i] = tempSum%10;
+            fib1[i] = tempFib[i];
+        }
+        if (fib2[999] != 0)
+            return counter;
+    }
+}
+
 
 
 
@@ -625,8 +643,8 @@ int main(){
     printf("problem21: %d\n",problem21());
     printf("problem28: %d\n",problem28());
     */
+    printf("%d",problem25());
     
-    printf("%d",problem22());
     
 
     
