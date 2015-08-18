@@ -200,6 +200,27 @@ int hundred_sum(int n){
             return 11;
 }
 
+int recurring_decimal_length(int n){
+    int decimalArray[1000] = {-1}, numerator = 1, index = 0, remainder, circut;
+    while (true){
+        //printf("%d\n",index);
+        remainder = numerator%n;
+        circut = 1;
+        for (int i=0;i<1000;i+=1){
+            if (decimalArray[i] == remainder)
+                circut = 0;
+        }
+        if (circut == 1){
+            decimalArray[index] = remainder;
+            index+=1;
+        }
+        else{
+            return index;
+        }
+        numerator=remainder*10;
+    }
+}
+
 int problem1(){
     int sum = 0;
     for (int i = 1; i <1000; i++){
@@ -580,22 +601,9 @@ int problem22(){
     
 }
 
-int problem28(){
-    int sum = 1;
-    int square;
-    for (int i = 3; i <= 1001; i += 2){
-        square = pow(i,2);
-        for (int j = 0; j < 4; j+=1)
-            sum+=square-((i-1)*j);
-    }
-    return sum;
-}
-
-
 int problem25(){
     int fib1[1000] = {0}, fib2[1000] = {0}, tempFib[1000] = {0}, carry = 0, counter = 2, tempSum;
-    fib1[0] = 1;
-    fib2[0] = 1;
+    fib1[0] = 1, fib2[0] = 1;
     while (true){
         counter += 1;
         for (int i=0; i<1000;i+=1){
@@ -610,7 +618,28 @@ int problem25(){
     }
 }
 
+int problem26(){
+    int largestRepeat = 0;
+    int largestD = 0;
+    for (int i=1;i<1000;i+=1){
+        if (recurring_decimal_length(i) > largestRepeat){
+            largestRepeat = recurring_decimal_length(i);
+            largestD = i;
+        }
+    }
+    return largestD;
+}
 
+int problem28(){
+    int sum = 1;
+    int square;
+    for (int i = 3; i <= 1001; i += 2){
+        square = pow(i,2);
+        for (int j = 0; j < 4; j+=1)
+            sum+=square-((i-1)*j);
+    }
+    return sum;
+}
 
 
 
@@ -641,9 +670,11 @@ int main(){
     printf("problem18: %d\n",problem18());
     printf("problem20: %d\n",problem20());
     printf("problem21: %d\n",problem21());
+    printf("problem22: %d\n",problem22());
+    printf("problem25: %d\n",problem25());
+    printf("problem26: %d\n",problem26());
     printf("problem28: %d\n",problem28());
     */
-    printf("%d",problem25());
     
     
 
