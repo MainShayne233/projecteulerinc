@@ -672,7 +672,19 @@ int problem28(){
     return sum;
 }
 
-
+int problem30(){
+    int sum = 0, powerSum;
+    for (int i=2;i<200000;i+=1){
+        powerSum=0;
+        int * digits = digitsToArray(i);
+        for (int t=0;t<amountOfDigits(i);t+=1){
+            powerSum += pow(digits[t],5);
+        }
+        if (powerSum == i)
+            sum+=i;
+    }
+    return sum;
+}
 
 
 
@@ -687,7 +699,7 @@ int main(){
     printf("problem3: %d\n",problem3());
     printf("problem4: %d\n",problem4());
     printf("problem5: %d\n",problem5());
-    printf("problem6: %d\n",problem6());
+    printf("problem6: %ld\n",problem6());
     printf("problem7: %d\n",problem7());
     printf("problem8: %d\n",problem8());
     printf("problem9: %d\n",problem9());
@@ -707,8 +719,9 @@ int main(){
     printf("problem26: %d\n",problem26());
     printf("problem27: %d\n",problem27());
     printf("problem28: %d\n",problem28());
+    printf("problem30: %d\n",problem30());
     */
-    printf("problem29: %d\n",problem29());
+    
     
    
 
