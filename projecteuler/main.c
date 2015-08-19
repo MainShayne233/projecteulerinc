@@ -10,9 +10,11 @@
 #include <stdbool.h>
 
 bool isPrime(int num){
+    if (num<0)
+        num*=-1;
     if (num == 2)
         return true;
-    if (num == 1)
+    if (num == 1 || num == 0)
         return false;
     for (int i = 2; i*i<=num; i+=1){
         if (num % i == 0)
@@ -220,6 +222,18 @@ int recurring_decimal_length(int n){
             return index;
         }
         numerator=remainder*10;
+    }
+}
+
+int quadratic_primes(int a, int b){
+    int n = 0;
+    while (true){
+        if (!isPrime(pow(n,2) + a*n + b)){
+            if (n==1011)
+                printf("a : %d, b : %d",a,b);
+            return n;
+        }
+        n+=1;
     }
 }
 
@@ -632,6 +646,21 @@ int problem26(){
     return largestD;
 }
 
+int problem27(){
+    int mostPrimes=0, product=0, primes = 0, b;
+    for (int a = (-999); a < 1000; a+=2){
+        b = -997;
+        while (b < 1000){
+            primes = quadratic_primes(a, b);
+            if (primes>mostPrimes){
+                mostPrimes=primes, product = a*b;
+            }
+            b=nextPrimeNumber(b);
+        }
+    }
+    return product;
+}
+
 int problem28(){
     int sum = 1;
     int square;
@@ -643,32 +672,8 @@ int problem28(){
     return sum;
 }
 
-int quadratic_primes(int a, int b){
-    int n = 0;
-    while (true){
-        if (!isPrime(pow(n,2) + a*n + b)){
-            if (n==1011)
-                printf("a : %d, b : %d",a,b);
-            return n;
-        }
-        n+=1;
-    }
-}
 
 
-int problem27(){
-    int mostPrimes=0, product=0, primes = 0, aa=0, bb=0;
-    for (int a = (-999); a < 1000; a+=1){
-;
-        for (int b = (-999); b < 1000; b += 1){
-            primes = quadratic_primes(a, b);
-            if (primes>mostPrimes){
-                mostPrimes=primes, product = a*b, aa=a, bb=b;
-            }
-        }
-    }
-    return mostPrimes;
-}
 
 
 
@@ -700,11 +705,13 @@ int main(){
     printf("problem22: %d\n",problem22());
     printf("problem25: %d\n",problem25());
     printf("problem26: %d\n",problem26());
+    printf("problem27: %d\n",problem27());
     printf("problem28: %d\n",problem28());
     */
+    printf("problem29: %d\n",problem29());
     
-    printf("problem27: %d\n",problem27());
-   // printf("%d", quadratic_primes(-61, 971));
+   
+
 
     
 }
