@@ -235,6 +235,7 @@
 				263CD1311B51F4F300A0C22D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

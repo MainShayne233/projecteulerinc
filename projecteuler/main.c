@@ -12,6 +12,8 @@
 bool isPrime(int num){
     if (num == 2)
         return true;
+    if (num == 1)
+        return false;
     for (int i = 2; i*i<=num; i+=1){
         if (num % i == 0)
             return false;
@@ -641,7 +643,32 @@ int problem28(){
     return sum;
 }
 
+int quadratic_primes(int a, int b){
+    int n = 0;
+    while (true){
+        if (!isPrime(pow(n,2) + a*n + b)){
+            if (n==1011)
+                printf("a : %d, b : %d",a,b);
+            return n;
+        }
+        n+=1;
+    }
+}
 
+
+int problem27(){
+    int mostPrimes=0, product=0, primes = 0, aa=0, bb=0;
+    for (int a = (-999); a < 1000; a+=1){
+;
+        for (int b = (-999); b < 1000; b += 1){
+            primes = quadratic_primes(a, b);
+            if (primes>mostPrimes){
+                mostPrimes=primes, product = a*b, aa=a, bb=b;
+            }
+        }
+    }
+    return mostPrimes;
+}
 
 
 
@@ -676,7 +703,8 @@ int main(){
     printf("problem28: %d\n",problem28());
     */
     
-    
+    printf("problem27: %d\n",problem27());
+   // printf("%d", quadratic_primes(-61, 971));
 
     
 }
